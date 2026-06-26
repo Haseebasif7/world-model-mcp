@@ -14,8 +14,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/haseebasif/verify-action-mcp"
-Repository = "https://github.com/haseebasif/verify-action-mcp"
+Homepage = "https://github.com/Haseebasif7/world-model-mcp"
+Repository = "https://github.com/Haseebasif7/world-model-mcp"
 
 [project.scripts]
 verify-action-mcp = "verify_action_mcp.server:run"

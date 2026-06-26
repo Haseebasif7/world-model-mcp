@@ -43,8 +43,8 @@ via vLLM/SGLang on a rented GPU). See [Running the real model](#running-the-real
 ## Quick start
 
 ```bash
-git clone <your-repo-url> verify-action-mcp
-cd verify-action-mcp
+git clone https://github.com/Haseebasif7/world-model-mcp.git
+cd world-model-mcp
 ./setup.sh          # creates venv, installs, pulls official prompts, prints config
 ```
 
