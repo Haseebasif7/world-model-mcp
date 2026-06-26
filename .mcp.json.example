@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "verify-action": {
+      "command": "/absolute/path/to/verify-action-mcp/.venv/bin/verify-action-mcp",
+      "args": [],
+      "env": {
+        "WORLD_MODEL_BACKEND": "groq",
+        "GROQ_API_KEY": "gsk_your_key_here"
+      }
+    }
+  }
+}
