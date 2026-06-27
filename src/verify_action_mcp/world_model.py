@@ -4,6 +4,11 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from .prompts.terminal import TERMINAL_SYSTEM_PROMPT
 from .prompts.swe import SWE_SYSTEM_PROMPT
+from .prompts.web import WEB_SYSTEM_PROMPT
+from .prompts.mcp import MCP_SYSTEM_PROMPT
+from .prompts.search import SEARCH_SYSTEM_PROMPT
+from .prompts.android import ANDROID_SYSTEM_PROMPT
+from .prompts.os import OS_SYSTEM_PROMPT
 
 load_dotenv()
 
@@ -118,6 +123,11 @@ DOMAIN_PROMPTS = {
     "file_write": SWE_SYSTEM_PROMPT,
     "file_delete": SWE_SYSTEM_PROMPT,
     "git": SWE_SYSTEM_PROMPT,
+    "web": WEB_SYSTEM_PROMPT,
+    "mcp": MCP_SYSTEM_PROMPT,
+    "search": SEARCH_SYSTEM_PROMPT,
+    "android": ANDROID_SYSTEM_PROMPT,
+    "os": OS_SYSTEM_PROMPT,
     "other": TERMINAL_SYSTEM_PROMPT,
 }
 
