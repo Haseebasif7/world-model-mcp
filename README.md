@@ -19,8 +19,31 @@ Agent (Claude Code) ──verify_action──▶ verify-action-mcp ──▶ wor
         └──────────────  predicted environment response  ◀────────┘
 ```
 
-The action is routed to a domain system prompt (terminal vs. software-engineering),
-combined with recent interaction history, and sent to the configured backend.
+The action is routed to a domain system prompt based on its `action_type` (see
+[Domains](#domains)), combined with recent interaction history, and sent to the
+configured backend.
+
+## Domains
+
+`verify_action` takes an `action_type` that selects which Qwen-AgentWorld world-model
+prompt simulates the environment. All seven Qwen-AgentWorld domains are supported:
+
+| `action_type` | Domain | Simulates |
+|---|---|---|
+| `shell_exec` | Terminal | stdout/stderr, exit codes, and shell state of a Linux/Unix command |
+| `file_write` | SWE (Tool) | result of writing/overwriting a file |
+| `file_delete` | SWE (Tool) | result of deleting a file or directory (e.g. `rm -rf`) |
+| `git` | SWE (Tool) | git output: hashes, diffs, status, history-rewriting ops |
+| `web` | Web | next browser page state after a click/type/navigate action |
+| `mcp` | MCP (Tool) | JSON result of an MCP tool call, per the tool's schema |
+| `search` | Search | web-search results, page extraction, and memory operations |
+| `android` | Android | next Android UI screen state after a tap/swipe/type action |
+| `os` | Desktop | next desktop accessibility-tree state after a computer-use action |
+| `other` | Terminal | fallback for anything that doesn't fit the above |
+
+Each domain's system prompt is the official Qwen-AgentWorld prompt
+(`src/verify_action_mcp/prompts/<domain>_official.txt`), with a hand-written fallback
+in the matching `<domain>.py` loader if the official file is missing.
 
 ## Backends
 
